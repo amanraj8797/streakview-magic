@@ -1,11 +1,18 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import StreakTracker from "@/components/StreakTracker";
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 p-4">
+      <div className="w-full max-w-4xl mx-auto">
+        <h1 className="text-3xl font-bold mb-6 text-center">StreakView Magic</h1>
+        <p className="text-gray-600 mb-10 text-center max-w-2xl mx-auto">
+          Track your daily learning progress and maintain your streak. Click "View" to see detailed statistics and your position on the leaderboard.
+        </p>
+        
+        <div className="w-full max-w-md mx-auto">
+          <StreakTracker />
+        </div>
       </div>
     </div>
   );
