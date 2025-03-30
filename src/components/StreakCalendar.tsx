@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import { useStreakData } from "@/hooks/use-streak-data";
 
 const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+const days = ["M", "W", "F", "S"];
 
 const StreakCalendar = () => {
   const { contributionData } = useStreakData();
@@ -80,18 +80,18 @@ const StreakCalendar = () => {
         </div>
       </div>
       
-      <div className="relative">
+      <div className="relative overflow-hidden">
         <div className="flex">
-          <div className="w-6 mr-2">
+          <div className="w-6 mr-1 shrink-0">
             {days.map((day, i) => (
-              <div key={day} className="h-[11px] text-xs text-gray-500 flex items-center">
-                {i % 2 === 0 ? day.substring(0, 1) : ""}
+              <div key={day} className="h-[11px] mb-[2px] text-[10px] text-gray-500 flex items-center">
+                {day}
               </div>
             ))}
           </div>
           
-          <div className="flex-1 overflow-x-auto">
-            <div className="flex mb-1 text-xs text-gray-500">
+          <div className="w-full overflow-x-auto pb-2">
+            <div className="inline-flex mb-1 text-[10px] text-gray-500 min-w-max">
               {calendarData.map((week, i) => {
                 // Only show month label if it's first day of month
                 const firstDayOfMonth = week[0].date.getDate() === 1 || i === 0;
@@ -103,7 +103,7 @@ const StreakCalendar = () => {
               })}
             </div>
             
-            <div className="flex">
+            <div className="inline-flex min-w-max">
               {calendarData.map((week, weekIndex) => (
                 <div key={weekIndex} className="flex flex-col mr-[2px]">
                   {week.map((day, dayIndex) => (

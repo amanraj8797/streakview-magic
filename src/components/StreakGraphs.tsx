@@ -35,19 +35,20 @@ const StreakGraphs = () => {
 
       <div className="h-64 mt-4">
         <ResponsiveContainer width="100%" height="100%">
-          <BarChart data={data} margin={{ top: 5, right: 20, left: 0, bottom: 5 }}>
+          <BarChart data={data} margin={{ top: 5, right: 5, left: 0, bottom: 5 }}>
             <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f0f0f0" />
             <XAxis 
               dataKey="name" 
               axisLine={false}
               tickLine={false}
-              tick={{ fontSize: 12 }}
+              tick={{ fontSize: 10 }}
+              interval="preserveStartEnd"
             />
             <YAxis 
               axisLine={false}
               tickLine={false}
-              tick={{ fontSize: 12 }}
-              width={30}
+              tick={{ fontSize: 10 }}
+              width={25}
             />
             <Tooltip content={<CustomTooltip />} />
             <Bar 
@@ -62,22 +63,22 @@ const StreakGraphs = () => {
 
       <div className="mt-4">
         <h3 className="text-sm font-medium mb-2">Statistics</h3>
-        <div className="grid grid-cols-3 gap-4">
-          <div className="p-3 bg-slate-50 rounded-md">
+        <div className="grid grid-cols-3 gap-2 sm:gap-4">
+          <div className="p-2 sm:p-3 bg-slate-50 rounded-md">
             <p className="text-xs text-muted-foreground">Average</p>
-            <p className="text-lg font-semibold">
+            <p className="text-base sm:text-lg font-semibold">
               {timeFrame === "daily" ? "3.2" : timeFrame === "weekly" ? "18.5" : "63.8"}
             </p>
           </div>
-          <div className="p-3 bg-slate-50 rounded-md">
+          <div className="p-2 sm:p-3 bg-slate-50 rounded-md">
             <p className="text-xs text-muted-foreground">Highest</p>
-            <p className="text-lg font-semibold">
+            <p className="text-base sm:text-lg font-semibold">
               {timeFrame === "daily" ? "12" : timeFrame === "weekly" ? "48" : "124"}
             </p>
           </div>
-          <div className="p-3 bg-slate-50 rounded-md">
+          <div className="p-2 sm:p-3 bg-slate-50 rounded-md">
             <p className="text-xs text-muted-foreground">Total</p>
-            <p className="text-lg font-semibold">
+            <p className="text-base sm:text-lg font-semibold">
               {timeFrame === "daily" ? "83" : timeFrame === "weekly" ? "83" : "83"}
             </p>
           </div>

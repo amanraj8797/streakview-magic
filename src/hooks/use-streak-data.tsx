@@ -27,6 +27,12 @@ type RankingData = {
   currentUser: UserRank;
 };
 
+type TotalRewards = {
+  coins: number;
+  tier: string;
+  nextTierCoins: number;
+};
+
 const generateContributionData = (): ContributionData => {
   const data: ContributionData = { totalCount: 0 };
   const today = new Date();
@@ -112,6 +118,14 @@ const generateRankingData = (): RankingData => {
   };
 };
 
+const generateTotalRewards = (): TotalRewards => {
+  return {
+    coins: 2500,
+    tier: "Silver",
+    nextTierCoins: 500
+  };
+};
+
 export const useStreakData = () => {
   const [contributionData, setContributionData] = useState<ContributionData>({ totalCount: 0 });
   const [timeFrameData, setTimeFrameData] = useState<TimeFrameData>({
@@ -138,11 +152,18 @@ export const useStreakData = () => {
     daysRemaining: 5
   });
   
+  const [totalRewards, setTotalRewards] = useState<TotalRewards>({
+    coins: 0,
+    tier: "",
+    nextTierCoins: 0
+  });
+  
   useEffect(() => {
     // Generate mock data
     setContributionData(generateContributionData());
     setTimeFrameData(generateTimeFrameData());
     setRankingData(generateRankingData());
+    setTotalRewards(generateTotalRewards());
   }, []);
 
   return {
@@ -150,6 +171,7 @@ export const useStreakData = () => {
     timeFrameData,
     rankingData,
     currentStreak,
-    nextMilestone
+    nextMilestone,
+    totalRewards
   };
 };

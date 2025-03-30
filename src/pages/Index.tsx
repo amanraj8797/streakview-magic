@@ -10,7 +10,7 @@ const Index = () => {
           Track your daily learning progress and maintain your streak. Click "View" to see detailed statistics and your position on the leaderboard.
         </p>
         
-        <div className="w-full max-w-md mx-auto">
+        <div className="flex justify-center">
           <StreakTracker />
         </div>
       </div>
